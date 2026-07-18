@@ -6,7 +6,7 @@ class Solution {
             List<Integer> cols = new ArrayList<>();
             for(int j = 0; j <= i; j++){
                 if(j > 0 && j < i && i > 0){
-                    System.out.println(i + " " + j);
+                    // System.out.println(i + " " + j);
                     cols.add(ans.get(i-1).get(j-1) + ans.get(i-1).get(j));
                 }else{
                     cols.add(1);
