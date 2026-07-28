@@ -1,31 +1,27 @@
 class Solution {
+    void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
     public void sortColors(int[] nums) {
-        HashMap<Integer, Integer> mp = new HashMap<>();
+        int i = 0;
+        int j = 0;
+        int k = nums.length-1;
 
-        for(int num : nums){
-            mp.put(num, mp.getOrDefault(num, 0) + 1);
+        while(j <= k) {
+            if(nums[j] == 0) {
+                swap(nums, j, i);
+                i++;
+                j++;
+            }else if(nums[j] == 1) {
+                j++;
+            }else{
+                swap(nums, j, k);
+    
+                k--;
+            }
         }
-        int count = mp.getOrDefault(0, 0);
-        int i  = 0;
-        while (count > 0) {
-            nums[i++] = 0;
-            count--;
-        }
-
-        count = mp.getOrDefault(1, 0);
-
-        while(count > 0) {
-            nums[i++] = 1;
-            count--;
-        }
-
         
-        count = mp.getOrDefault(2, 0);
-
-        while(count > 0) {
-            nums[i++] = 2;
-            count--;
-        }
-
     }
 }
